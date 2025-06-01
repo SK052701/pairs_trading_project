@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
 
 
 import yfinance as yf
@@ -10,7 +9,6 @@ import os
 from datetime import datetime
 
 
-# In[4]:
 
 
 # 1. Download raw data
@@ -61,7 +59,6 @@ def download_data(tickers, start='2015-01-01', end=None, save_path=None):
     return data
 
 
-# In[5]:
 
 
 # 2. Clean a single DataFrame
@@ -134,7 +131,6 @@ def clean_data(df, ticker=None, verbose=True):
     return df, logs
 
 
-# In[6]:
 
 
 # 3. Clean multiple tickers
@@ -169,7 +165,6 @@ def batch_clean_data(raw_data_dict):
     return cleaned_data, logs
 
 
-# In[7]:
 
 
 # 4. Load data from CSV
@@ -182,8 +177,6 @@ def load_data(file_path):
     df = pd.read.csv(file_path, index_col=0, parse_dates=True)
     return df
 
-
-# In[8]:
 
 
 # 5. Save cleaned data
@@ -215,7 +208,6 @@ def save_clean_data(df, ticker, save_path="data/clean", log_path=None):
             f.write(f"{pd.Timestamp.now()}: Saved cleaned data for {ticker} to {file_path}\n")
 
 
-# In[9]:
 
 
 # 6. Logging function
@@ -243,7 +235,6 @@ def log_pipeline_step(log_path, message):
         f.write(f"{pd.Timestamp.now()}: {message}\n")
 
 
-# In[ ]:
 
 
 
